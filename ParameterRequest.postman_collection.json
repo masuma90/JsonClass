@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "5eefa94d-9a41-452e-b9ce-e9a7cc57146e",
+		"name": "ParameterRequest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29237748",
+		"_collection_link": "https://www.postman.com/flight-geologist-91472447/workspace/sla-batch6/collection/29237748-5eefa94d-9a41-452e-b9ce-e9a7cc57146e?action=share&source=collection_link&creator=29237748"
+	},
+	"item": [
+		{
+			"name": "PathParameter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://apingweb.com/api/auth/user/edit/100",
+					"protocol": "https",
+					"host": [
+						"apingweb",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"user",
+						"edit",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryParameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jasonData = pm.response.json();\r",
+							"pm.globals.set(\"userIdfromRegresspi\",jasonData[5].id);\r",
+							"console.log(pm.globals.get(\"userIdfromRegresspi\"))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://reqres.in/api/users?page=2&id=1&name=admin",
+					"protocol": "http",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "name",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
